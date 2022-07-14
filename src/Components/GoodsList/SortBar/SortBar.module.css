@@ -1,0 +1,15 @@
+.SortBar {
+    width: 1400px;
+    height: 60px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Roboto Slab', serif;
+}
+.SortBarItem {
+    width: 20%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

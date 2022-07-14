@@ -1,0 +1,18 @@
+.GoodsListItem {
+    width: 1350px;
+    height: 60px;
+    border-bottom: 1px solid darkgrey;
+    display: flex;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.Item {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.GoodsListItem:hover {
+    background-color: rgba(18, 19, 84, 0.9);
+    color: white;
+}

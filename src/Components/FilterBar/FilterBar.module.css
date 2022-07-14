@@ -1,0 +1,33 @@
+.FilterBar {
+  width: 1400px;
+  height: 60px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+.FiltersSection {
+  width: 800px;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.SetFiltersButton {
+  width: 120px;
+  height: 30px;
+  border: none;
+  background-color: rgba(18, 19, 84, 0.9);
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: 0.5s;
+  font-family: 'Roboto Slab', serif;
+}
+.SetFiltersButton:hover {
+  box-shadow: 0px 0px 8px 5px rgba(34, 60, 80, 0.2);
+}
+.Selectors {
+  width: 200px;
+}
