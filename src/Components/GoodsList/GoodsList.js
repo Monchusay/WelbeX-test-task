@@ -33,6 +33,7 @@ const GoodsList = (props) => {
         goodsPerPage={goodsPerPage}
         totalGoods={props.goods.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </div>
   );

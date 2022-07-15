@@ -17,6 +17,20 @@
     border-radius: 10px;
     transition: 0.3s;
 }
+.ActivePageNumber {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.3s;
+    background-color: rgba(18, 19, 84, 0.9);
+    color: white;
+}
 
 .PageNumber:hover {
     background-color: rgba(18, 19, 84, 0.9);
