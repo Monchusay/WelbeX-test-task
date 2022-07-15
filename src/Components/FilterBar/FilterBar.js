@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./FilterBar.module.css";
 import Select from "react-select";
 
-
-
 const FilterBar = (props) => {
-
   const optionsColumn = [
     { value: "Date", label: "Дата" },
     { value: "Name", label: "Название" },
@@ -15,47 +12,79 @@ const FilterBar = (props) => {
   const optionsCondition = [
     { value: "More", label: "Больше" },
     { value: "Less", label: "Меньше" },
-    { value: "Contains", label: "Содержит" },
+    { value: "Includes", label: "Содержит" },
     { value: "Equal", label: "Равно" },
   ];
 
-  let newFilterElement = React.createRef();
-  let onSettingFilteringValue = () => {
-    let filterText = newFilterElement.current.value;
-    props.setFilteringValue(filterText)
+  const [column, setColumn] = useState("");
+  const [condition, setCondition] = useState("");
+  const [value, setValue] = useState("");
+
+  let onSettingFilteringValue = (e) => {
+    let filterText = e.target.value;
+    setValue(filterText);
+    props.setFilteringValue(filterText);
   };
 
-  const onFilteringColumn = (value) => {
-    props.setColumnFilter(value)
-  }
-  const onFilteringCondition = (value) => {
-    props.setConditionFilter(value)
-  }
+  const onFilteringColumn = (type) => {
+    props.setColumnFilter(type.value);
+    setColumn(type);
+  };
+  const onFilteringCondition = (type) => {
+    props.setConditionFilter(type.value);
+    setCondition(type);
+  };
   const onFiltering = () => {
-    props.filterGoods()
-  }
+    props.filterGoods();
+  };
+  const onResetFilters = () => {
+    props.resetFilters();
+    setColumn("");
+    setCondition("");
+    setValue("");
+  };
   return (
     <div className={style.FilterBar}>
       <div className={style.FiltersSection}>
         <Select
+          value={column}
           className={style.Selectors}
           classNamePrefix="selectors"
           placeholder="Выбор колонки"
           options={optionsColumn}
           isSearchable={false}
-          onChange={(type) => {onFilteringColumn(type.value)}}
+          onChange={onFilteringColumn}
         />
         <Select
+          value={condition}
           className={style.Selectors}
           placeholder="Выбор условия"
           classNamePrefix="selectors"
           options={optionsCondition}
           isSearchable={false}
-          onChange={(type) => {onFilteringCondition(type.value)}}
+          onChange={onFilteringCondition}
         />
-        <input onChange={onSettingFilteringValue} ref={newFilterElement} style={{ width: 80 + "px", height: 30 + "px" }} />
-        <button onClick={onFiltering} className={style.SetFiltersButton}> Отфильтровать </button>
+        <input
+          value={value}
+          onChange={onSettingFilteringValue}
+          style={{ width: 80 + "px", height: 30 + "px" }}
+        />
+        <button
+          onClick={onFiltering}
+          className={style.SetFiltersButton}
+          style={{ width: 140 + "px" }}
+        >
+          {" "}
+          Отфильтровать{" "}
+        </button>
       </div>
+      <button
+        onClick={onResetFilters}
+        className={style.SetFiltersButton}
+        style={{ width: 200 + "px" }}
+      >
+        Сбросить фильтры
+      </button>
     </div>
   );
 };

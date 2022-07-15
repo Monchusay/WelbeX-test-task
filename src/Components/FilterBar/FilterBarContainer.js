@@ -1,13 +1,14 @@
 import { connect } from "react-redux";
 import FilterBar from "./FilterBar";
 import {
-  filterGoods,
+  filterGoods, resetFilters,
   setColumnFilter,
   setConditionFilter, setFilteringValue,
 } from "../../State/Slices/GoodsListSlice";
 
 let mapStateToProps = (state) => {
-  return {};
+  return {
+  };
 };
 
 let mapDispatchToProps = (dispatch) => {
@@ -23,6 +24,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     filterGoods: () => {
       dispatch(filterGoods())
+    },
+    resetFilters: () => {
+      dispatch(resetFilters())
     }
   };
 };
