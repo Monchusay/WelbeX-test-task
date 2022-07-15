@@ -15,7 +15,7 @@ const GoodsList = (props) => {
     setCurrentPage(pageNumber);
   };
 
-  let goodsItem = currentGoods.map((g, index) => (
+  let goodsItems = currentGoods.map((g, index) => (
     <GoodsListItem
       key={index}
       publishDate={g.publishDate}
@@ -28,7 +28,9 @@ const GoodsList = (props) => {
   return (
     <div className={style.GoodsList}>
       <SortBarContainer />
-      <div className={style.GoodsListItems}>{goodsItem}</div>
+      <div className={style.GoodsListItems}>
+        {goodsItems.length > 0 ? goodsItems : <p>Ничего не найдено</p>}
+      </div>
       <Pagination
         goodsPerPage={goodsPerPage}
         totalGoods={props.goods.length}
