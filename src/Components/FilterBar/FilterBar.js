@@ -65,6 +65,7 @@ const FilterBar = (props) => {
           onChange={onFilteringCondition}
         />
         <input
+          placeholder={column.value === "Date" && "мм.дд.гггг"}
           value={value}
           onChange={onSettingFilteringValue}
           style={{ width: 80 + "px", height: 30 + "px" }}
